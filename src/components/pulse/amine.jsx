@@ -72,20 +72,22 @@ function Tip({ title, summary, rows }) {
   );
 }
 
-/* ---- stat row: "N% through" + forecast note ---------------------------- */
+/* ---- stat row: "Your campaign progress N%" + schedule note (Tony) ------ */
 export function AmineStat({ scene }) {
-  const raw = FCAST[scene.day] || '';
-  const note = raw.replace(/^[^A-Za-z0-9]+\s*/, '');
-  const emoji = raw.startsWith('🎉') ? '🎉' : '🚀';
+  const wrapped = scene.day === 30;
   return (
     <div className="am-stat">
       <div className="am-stat-left">
+        <span className="am-stat-cap">Your campaign progress</span>
         <span className="am-stat-big">{PCT[scene.day]}</span>
-        <span className="am-stat-cap">complete</span>
       </div>
       <div className="am-stat-note">
-        <span aria-hidden>{emoji}</span>
-        <span>{note}</span>
+        {wrapped && <span aria-hidden>🎉</span>}
+        <span>
+          {wrapped
+            ? 'Wrapped 37 days ahead of average'
+            : 'Campaign on schedule, up to 4 weeks faster than industry average'}
+        </span>
       </div>
     </div>
   );

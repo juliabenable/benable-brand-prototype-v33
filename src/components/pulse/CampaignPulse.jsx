@@ -24,7 +24,7 @@ const BAR = { 0: 'band', 6: 'synth', 7: 'faces', 13: 'vitals' };
 
 // Survive captured-DOM remounts.
 let persistedIdx = 2; // open on Day 9 — the dead middle is the thesis
-let persistedVariant = 'A';
+let persistedVariant = 'C'; // Julia: link opens on Day 9 / C
 
 export default function CampaignPulse() {
   const [idx, setIdx] = useState(persistedIdx);
@@ -92,9 +92,12 @@ export default function CampaignPulse() {
 
   return (
     <div className={`cp-root cp-root--${variant.toLowerCase()}`} ref={rootRef}>
-      <div className="cp-crew" key={`${variant}-${scene.day}`}>
-        <Lead scene={scene} />
-      </div>
+      {/* C drops the lead headline — the page opens on the progress row (Tony/Julia) */}
+      {variant !== 'C' && (
+        <div className="cp-crew" key={`${variant}-${scene.day}`}>
+          <Lead scene={scene} />
+        </div>
+      )}
       {BAR[variant] && <CrewBar mode={BAR[variant]} scene={scene} ready={scene.day === 3} />}
       {variant === 'P' && <PipelineBar scene={scene} />}
       {variant === 'Q' && <PipelineFilterBar scene={scene} filter={stageFilter} onFilter={setStageFilter} />}

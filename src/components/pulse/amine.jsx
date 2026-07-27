@@ -116,7 +116,7 @@ export function AmineFunnelBar({ scene, filter, onFilter }) {
               onClick={() => onFilter(filter === 'casting' ? null : 'casting')}
             >
               <span className="am-count" style={{ color: '#808080' }}>{f.casting}</span>
-              <Tip title="Casting…" summary={`${f.casting} of ${total} here · being cast right now`} />
+              <Tip title="Sourcing…" summary={`${f.casting} of ${total} here · being sourced right now`} />
             </button>
           </div>
           {/* 20px separation = 3px gap + 14px rule + 3px gap, per the source */}
@@ -222,7 +222,7 @@ export function AmineChips({ scene, filter, onFilter }) {
         />
         {f.casting > 0 && (
           <Chip
-            label="Casting…"
+            label="Sourcing…"
             count={f.casting}
             selected={filter === 'casting'}
             onClick={() => onFilter(filter === 'casting' ? null : 'casting')}
@@ -306,7 +306,7 @@ export function AmineRailBar({ scene, filter, onFilter }) {
     <div className="am2-rail" role="group" aria-label={`Creator funnel: ${PCT[scene.day]} through`}>
       {f.casting > 0 && (
         <RailColumn
-          label="Casting…"
+          label="Sourcing…"
           hint={f.named.length ? 'Rematching you with creators' : 'Matching you with creators'}
           count={f.casting}
           fill="#dbeee3"
@@ -315,7 +315,7 @@ export function AmineRailBar({ scene, filter, onFilter }) {
           selected={filter === 'casting'}
           dimmed={filtering && filter !== 'casting'}
           onActivate={() => onFilter(filter === 'casting' ? null : 'casting')}
-          tip={<Tip title="Casting…" summary={`${f.casting} of ${total} here · being cast right now`} />}
+          tip={<Tip title="Sourcing…" summary={`${f.casting} of ${total} here · being sourced right now`} />}
         />
       )}
       {AM_STAGES.map((s, i) => {
@@ -365,7 +365,7 @@ export function AmineProgress2({ scene, filter, onFilter }) {
 
 /* ---- creators table ---------------------------------------------------- */
 export const AM_FILTER_LABEL = (filter) =>
-  filter === 'needs' ? 'Needs you' : filter === 'casting' ? 'Casting…' : AM_STAGES[filter]?.label;
+  filter === 'needs' ? 'Needs you' : filter === 'casting' ? 'Sourcing…' : AM_STAGES[filter]?.label;
 
 export function AmineTable({ scene, rows, filter, onFilter, openCrew, toggleCrew }) {
   const cohort = (CREW[scene.day] || []).length;
@@ -420,7 +420,7 @@ export function AmineTable({ scene, rows, filter, onFilter, openCrew, toggleCrew
                   )}
                   <span className="am-names">
                     <span className="am-name">
-                      {c.name}
+                      {c.mystery ? 'Sourcing…' : c.name}
                       {!c.mystery && <img src={AIC.check} alt="Verified" className="am-verified" />}
                     </span>
                     <span className="am-handle">{c.mystery ? 'sourcing now' : c.handle}</span>
@@ -430,7 +430,7 @@ export function AmineTable({ scene, rows, filter, onFilter, openCrew, toggleCrew
                   {flaggedRow && <span aria-hidden>⚑ </span>}
                   <LiveStatus status={c.status} />
                 </span>
-                <span className="am-dashes" role="img" aria-label={c.mystery ? 'Casting' : `Stage ${reached + 1} of ${AM_STAGES.length}: ${AM_STAGES[reached].label}`}>
+                <span className="am-dashes" role="img" aria-label={c.mystery ? 'Sourcing' : `Stage ${reached + 1} of ${AM_STAGES.length}: ${AM_STAGES[reached].label}`}>
                   {AM_STAGES.map((s, si) => (
                     <i key={s.label} style={{ background: si <= reached ? '#7a5cfa' : '#e3e3e3' }} />
                   ))}

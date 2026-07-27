@@ -78,8 +78,8 @@ export function AmineStat({ scene }) {
   return (
     <div className="am-stat">
       <div className="am-stat-left">
-        <span className="am-stat-cap">Your campaign progress</span>
         <span className="am-stat-big">{PCT[scene.day]}</span>
+        <span className="am-stat-cap">your campaign progress</span>
       </div>
       <div className="am-stat-note">
         {wrapped && <span aria-hidden>🎉</span>}

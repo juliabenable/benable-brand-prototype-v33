@@ -307,7 +307,7 @@ export function AmineRailBar({ scene, filter, onFilter }) {
       {f.casting > 0 && (
         <RailColumn
           label="Sourcing…"
-          hint={f.named.length ? 'Rematching you with creators' : 'Matching you with creators'}
+          hint={f.named.length ? 'Rematching you' : 'Matching you with creators'}
           count={f.casting}
           fill="#dbeee3"
           ink="#06301f"

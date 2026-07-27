@@ -5,6 +5,7 @@
 export const VARIANTS = [
   { key: 'A', name: 'Amine' },
   { key: 'C', name: 'No banner' },
+  { key: 'D', name: 'Recap from 0' },
   { key: 'W', name: 'Live bar' },
   { key: 'Y', name: 'Labs skin' },
   { key: 'Z', name: 'Gradient bar' },

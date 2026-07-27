@@ -1,6 +1,7 @@
 import { CREW, PCT, FCAST, PHOTOS, TIMELINES, CASTING_TIMELINE, STAGE_LABELS } from './pulseData.js';
 import { stageOf } from './pipelineBar.jsx';
 import LiveStatus from './LiveStatus.jsx';
+import { RecapTile } from './tiles.jsx';
 
 /* A · Amine — the designer's cohort-funnel page (benable-cohort-funnel repo,
    Figma 11603:48887) rebuilt on v32's states: DAYS scrubber, CREW rows,
@@ -522,19 +523,23 @@ function Meter({ label, trailing, pct, fill }) {
   );
 }
 
-export function AmineRail({ scene }) {
+export function AmineRail({ scene, zeroRecap = false }) {
   const { recap, race } = scene;
   return (
     <aside className="am-rail">
-      <RailCard
-        icon={AIC.invites}
-        title="While you were away"
-        subtitle={<>Since, <b className="am-sub-b">{recap.since.replace(/^since /, '')}</b></>}
-      >
-        {recap.items.map((it, i) => (
-          <NoteRow key={it.bold} emoji={it.emoji} strong={it.bold} rest={it.rest} last={i === recap.items.length - 1} />
-        ))}
-      </RailCard>
+      {zeroRecap ? (
+        <RecapTile scene={scene} />
+      ) : (
+        <RailCard
+          icon={AIC.invites}
+          title="While you were away"
+          subtitle={<>Since, <b className="am-sub-b">{recap.since.replace(/^since /, '')}</b></>}
+        >
+          {recap.items.map((it, i) => (
+            <NoteRow key={it.bold} emoji={it.emoji} strong={it.bold} rest={it.rest} last={i === recap.items.length - 1} />
+          ))}
+        </RailCard>
+      )}
 
       <RailCard icon={AIC.invites} title="Up next">
         {scene.upNext.map((u, i) => (

@@ -255,13 +255,13 @@ export function AmineProgress({ scene, filter, onFilter }) {
    above it is what has already happened. Empty stages keep a forward-looking
    line (no-zeros rule). Voice: "Katie's team", never "Benable Team". */
 const AM2_RAIL = [
-  { fill: '#b9dfcb', ink: '#06301f', hint: (n) => (n ? 'Creators are reviewing your invites' : 'invites go out on approval') },
-  { fill: '#8fceae', ink: '#06301f', hint: (n) => (n ? (n === 1 ? '1 placing an order now' : `${n} placing orders now`) : 'waiting on replies') },
-  { fill: '#5fb98c', ink: '#06301f', hint: (n) => (n ? `${n} ${n === 1 ? 'package' : 'packages'} on the way` : 'nothing in transit') },
-  { fill: '#30aa70', ink: '#06301f', hint: (n) => (n ? `${n} creating content` : 'once packages land') },
-  { fill: '#17864f', ink: '#ffffff', hint: (n) => (n ? 'Katie’s team is verifying quality' : 'after filming') },
-  { fill: '#1a6f4c', ink: '#ffffff', hint: (n) => (n ? `${n} ${n === 1 ? 'post' : 'posts'} now live!` : 'after our checks') },
-  { fill: '#124a33', ink: '#ffffff', hint: (n) => (n ? 'All done!' : 'after posts go live') },
+  { fill: '#b9dfcb', ink: '#06301f', hint: (n) => (n ? 'Creators are reviewing your invites' : 'As soon as you approve your shortlist') },
+  { fill: '#8fceae', ink: '#06301f', hint: (n) => (n ? (n === 1 ? '1 placing an order now' : `${n} placing orders now`) : 'Waiting on replies') },
+  { fill: '#5fb98c', ink: '#06301f', hint: (n) => (n ? `${n} ${n === 1 ? 'package' : 'packages'} on the way` : 'As creators pick their products') },
+  { fill: '#30aa70', ink: '#06301f', hint: (n) => (n ? `${n} creating content` : 'When packages arrive') },
+  { fill: '#17864f', ink: '#ffffff', hint: (n) => (n ? 'Katie’s team is verifying quality' : 'Once creators finish filming') },
+  { fill: '#1a6f4c', ink: '#ffffff', hint: (n) => (n ? `${n} ${n === 1 ? 'post' : 'posts'} now live!` : 'Once quality checks pass') },
+  { fill: '#124a33', ink: '#ffffff', hint: (n) => (n ? 'All done!' : 'After posts go live') },
 ];
 
 function RailColumn({ label, hint, count, fill, hatchClass, ink, radius, disabled, selected, dimmed, highlighted, badge, onActivate, onBadge, tip }) {
@@ -379,7 +379,7 @@ export function AmineTable({ scene, rows, filter, onFilter, openCrew, toggleCrew
           <div>
             <p className="am-card-title">Creators</p>
             <p className="am-card-sub">
-              {filtered ? `${rows.length} of ${cohort} creators` : `${cohort} creator${cohort === 1 ? '' : 's'}`}
+              {filtered ? `${rows.length} of ${cohort} on this campaign` : `${cohort} on this campaign`}
             </p>
           </div>
         </div>

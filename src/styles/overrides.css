@@ -14,13 +14,16 @@ html, body, #root { min-height: 100%; height: auto; margin: 0; }
 .brand-dashboard:has(.wu),
 .brand-dashboard:has(.wu) .dashboard-body,
 .brand-dashboard:has(.draft-review-root),
-.brand-dashboard:has(.draft-review-root) .dashboard-body {
+.brand-dashboard:has(.draft-review-root) .dashboard-body,
+.brand-dashboard:has(.cp-root),
+.brand-dashboard:has(.cp-root) .dashboard-body {
   height: auto !important;
   overflow: visible !important;
   min-height: 100%;
 }
 .brand-dashboard:has(.wu) aside.sidebar,
-.brand-dashboard:has(.draft-review-root) aside.sidebar {
+.brand-dashboard:has(.draft-review-root) aside.sidebar,
+.brand-dashboard:has(.cp-root) aside.sidebar {
   position: sticky !important;
   top: 0 !important;
   align-self: start !important;
@@ -29,7 +32,8 @@ html, body, #root { min-height: 100%; height: auto; margin: 0; }
   overflow-y: auto !important;
 }
 .brand-dashboard:has(.wu) aside.sidebar .sidebar-shell,
-.brand-dashboard:has(.draft-review-root) aside.sidebar .sidebar-shell {
+.brand-dashboard:has(.draft-review-root) aside.sidebar .sidebar-shell,
+.brand-dashboard:has(.cp-root) aside.sidebar .sidebar-shell {
   height: 100vh !important;
   max-height: 100vh !important;
 }
@@ -41,7 +45,11 @@ html, body, #root { min-height: 100%; height: auto; margin: 0; }
 .brand-dashboard:has(.draft-review-root) .workspace-content,
 .brand-dashboard:has(.draft-review-root) .workspace-content-shell,
 .brand-dashboard:has(.draft-review-root) .workflow-page,
-.brand-dashboard:has(.draft-review-root) .workspace-grid {
+.brand-dashboard:has(.draft-review-root) .workspace-grid,
+.brand-dashboard:has(.cp-root) .workspace-content,
+.brand-dashboard:has(.cp-root) .workspace-content-shell,
+.brand-dashboard:has(.cp-root) .workflow-page,
+.brand-dashboard:has(.cp-root) .workspace-grid {
   height: auto !important;
   max-height: none !important;
   overflow: visible !important;

@@ -82,7 +82,7 @@ export function AmineStat({ scene }) {
         <span className="am-stat-cap">your campaign progress</span>
       </div>
       <div className="am-stat-note">
-        {wrapped && <span aria-hidden>🎉</span>}
+        <span aria-hidden>{wrapped ? '🎉' : '🚀'}</span>
         <span>
           {wrapped
             ? 'Wrapped 37 days ahead of average'
